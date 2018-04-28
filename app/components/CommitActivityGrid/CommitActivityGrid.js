@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react';
 import { ActivityLegend } from '../ActivityLegend/ActivityLegend';
 import { ActivityColumn } from '../ActivityColumn/ActivityColumn';
 
@@ -29,6 +29,13 @@ export class CommitActivityGrid extends Component {
     ).reverse();
     console.log(months);
     const columns = Array(52).fill(true);
+    let weekData = activityData;
+    if (activityData.length < 52) {
+      weekData = [
+        ...(Array(52 - activityData.length)).fill(new CommitActivityWeek()),
+        ...activityData
+      ];
+    }
     console.log(columns);
     return (
       <section className="activity-stats">
@@ -41,12 +48,12 @@ export class CommitActivityGrid extends Component {
               {months.map(month=><li>{month}</li>)}
             </ul>
             <section className="activity-grid">
-              {columns.map(()=><ActivityColumn/>)}
+              {weekData.map(week => <ActivityColumn weekData={week}/>)}
             </section>
           </div>
         </div>
         <ActivityLegend/>
       </section>
-    )
+    );
   }
 }

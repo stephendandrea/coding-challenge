@@ -20,6 +20,7 @@ export default class App extends React.Component {
         <a href="https://api.github.com/repos/facebook/react/stats/commit_activity">
           https://api.github.com/repos/facebook/react/stats/commit_activity
         </a>
+        <h3>Live component:</h3>
         <ReactCommitActivityGrid />
       </React.Fragment>
     );

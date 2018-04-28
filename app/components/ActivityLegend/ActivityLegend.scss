@@ -1,6 +1,20 @@
-ul {
+ul.activity-legend {
   li {
+    &:first-child {
+      margin-right: 5px;
+    }
+    &:last-child {
+      margin-left: 5px;
+    }
     list-style: none;
+    align-self: center;
   }
-  display: flex;
+  display         : flex;
+  flex-direction  : row;
+  justify-content : flex-end;
+
+  text-align      : right;
+
+  margin-right    : 5px;
+  padding         : 0;
 }

@@ -22,7 +22,7 @@ module.exports = {
     port : 3000,
     hot: false,
     inline: true,
-    contentBase: './app',
+    contentBase: './app'
   },
   devtool: 'source-map',
   module: {

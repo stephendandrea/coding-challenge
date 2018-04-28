@@ -25,10 +25,10 @@ ReactCommitActivityGrid.defaultProps = {
 };
 
 ReactCommitActivityGrid.propTypes = {
-
+  activityData: PropTypes.arrayOf(CommitActivityWeek)
 };
 
-function mapStateToProps (state, ownProps) {
+function mapStateToProps (state) {
   return {
     activityData: state.stats.activityData
   };
@@ -38,7 +38,7 @@ function mapDispatchToProps (dispatch) {
   return {
     ...bindActionCreators({
       getCommitActivity
-    }, dispatch),
+    }, dispatch)
   };
 }
 

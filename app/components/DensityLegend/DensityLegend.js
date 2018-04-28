@@ -5,7 +5,7 @@ import './ActivityLegend.scss';
 
 export const ActivityLegend = () => {
   return (
-    <ul className="activity-legend">
+    <ul>
       <li>Less</li>
       <ActivityCell activity={1} />
       <ActivityCell activity={2} />

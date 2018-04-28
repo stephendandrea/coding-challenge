@@ -16,6 +16,6 @@ const stats = (state = statsInitialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default stats;
