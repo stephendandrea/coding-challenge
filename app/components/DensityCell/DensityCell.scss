@@ -1,12 +1,8 @@
-$color-density-1: #EEEEEE;
-$color-density-2: #CCE295;
-$color-density-3: #8DC678;
-$color-density-4: #4B9747;
-$color-density-5: #305F2E;
+@import 'app/styles/global.scss';
 
 .cell {
-  width      : 12px;
-  height     : 12px;
+  width      : $cell-size;
+  height     : $cell-size;
   list-style : none;
   display    : block;
   margin     : 1px;
