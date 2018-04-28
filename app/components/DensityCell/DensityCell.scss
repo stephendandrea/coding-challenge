@@ -1,0 +1,32 @@
+$color-density-1: #EEEEEE;
+$color-density-2: #CCE295;
+$color-density-3: #8DC678;
+$color-density-4: #4B9747;
+$color-density-5: #305F2E;
+
+.cell {
+  width      : 12px;
+  height     : 12px;
+  list-style : none;
+  display    : block;
+  margin     : 1px;
+}
+
+.density {
+  &-1 {
+    background-color : $color-density-1;
+  }
+  &-2 {
+    background-color : $color-density-2;
+  }
+  &-3 {
+    background-color : $color-density-3;
+  }
+  &-4 {
+    background-color : $color-density-4;
+  }
+  &-5 {
+    background-color : $color-density-5;
+  }
+}
+

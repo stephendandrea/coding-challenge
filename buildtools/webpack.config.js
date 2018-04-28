@@ -32,7 +32,12 @@ module.exports = {
       },
       {
         test: /\.(sass|scss|css)$/,
-        loader: ExtractTextPlugin.extract(['css-loader', 'postcss-loader', 'sass-loader'])
+        loader: [
+          require.resolve('style-loader'),
+          require.resolve('css-loader'),
+          require.resolve('sass-loader')
+        ]
+        // loader: ExtractTextPlugin.extract(['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'])
       },
       {
         test: /\.(jpe?g|gif|png)$/,

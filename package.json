@@ -2,7 +2,7 @@
   "name": "coding-challenge",
   "version": "1.0.0",
   "scripts": {
-    "dev": "webpack-dev-server --colors --progress --config buildtools/webpack.config.js;"
+    "dev": "webpack-dev-server --colors --progress --config ./buildtools/webpack.config.js"
   },
   "author": "Stephen D'Andrea",
   "license": "ISC",
@@ -17,7 +17,13 @@
     "lodash": "4.17.4",
     "prop-types": "^15.6.0",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react-autobind": "^1.0.6",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.2.0",
+    "style-loader": "^0.13.2"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",

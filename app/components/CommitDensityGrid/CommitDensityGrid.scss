@@ -1,0 +1,37 @@
+section.density-stats {
+  .label-wrapper {
+    .days {
+      margin: 14px 0 0;
+    }
+    display: flex;
+    flex-direction: row;
+  }
+  .grid-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .months {
+    li {
+      flex-grow: 1;
+    }
+    display        : flex;
+    flex-direction : row;
+    width          : 100%;
+    padding        : 0;
+    margin         : 0;
+  }
+  .density-grid {
+    display        : flex;
+    flex-direction : row;
+  }
+  ul.vertical {
+    li {
+      height: 14px;
+    }
+    display        : flex;
+    flex-direction : column;
+    padding        : 0;
+  }
+  font-size: 0.75rem;
+  background-color: #FFF;
+}

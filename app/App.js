@@ -1,6 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
 
+import {CommitDensityGrid} from './components/CommitDensityGrid';
+
 export default class App extends React.Component {
 
   render () {
@@ -14,6 +16,7 @@ export default class App extends React.Component {
         <a href="https://api.github.com/repos/facebook/react/stats/commit_activity">
           https://api.github.com/repos/facebook/react/stats/commit_activity
         </a>
+        <CommitDensityGrid />
       </React.Fragment>
     );
 
