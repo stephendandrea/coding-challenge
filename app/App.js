@@ -1,7 +1,11 @@
 import React from 'react';
+import {Provider} from 'react-redux';
 import {render} from 'react-dom';
 
-import {CommitDensityGrid} from './components/CommitDensityGrid';
+// import {CommitActivityGrid} from './components/CommitActivityGrid';
+import { ReactCommitActivityGrid } from './components/ReactCommitActivityGrid';
+
+import store from './store';
 
 export default class App extends React.Component {
 
@@ -16,11 +20,16 @@ export default class App extends React.Component {
         <a href="https://api.github.com/repos/facebook/react/stats/commit_activity">
           https://api.github.com/repos/facebook/react/stats/commit_activity
         </a>
-        <CommitDensityGrid />
+        <ReactCommitActivityGrid />
       </React.Fragment>
     );
 
   }
 }
 
-render(<App/>, document.getElementById('app'));
+render(
+  <Provider store={store}>
+    <App/>
+  </Provider>,
+  document.getElementById('app')
+);

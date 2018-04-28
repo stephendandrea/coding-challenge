@@ -21,8 +21,10 @@ module.exports = {
     historyApiFallback: true,
     port : 3000,
     hot: false,
-    inline: false
+    inline: true,
+    contentBase: './app',
   },
+  devtool: 'source-map',
   module: {
     loaders: [
       {

@@ -1,6 +1,6 @@
 @import 'app/styles/global.scss';
 
-section.density-stats {
+section.activity-stats {
   .label-wrapper {
     .days {
       margin-top    : calc(#{$cell-size} + 2px);
@@ -25,7 +25,7 @@ section.density-stats {
     padding        : 0;
     margin         : 0;
   }
-  .density-grid {
+  .activity-grid {
     display        : flex;
     flex-direction : row;
   }

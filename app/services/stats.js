@@ -1,4 +1,4 @@
-const API_BASE = 'https://api.github.com/repos/facebook/';
+const API_BASE = 'https://api.github.com/repos/facebook';
 
 const resolver = (url) =>{
   return fetch(url).then(
@@ -12,7 +12,7 @@ const resolver = (url) =>{
   );
 };
 
-export const commitActivity = (repo) => {
+export const fetchCommitActivity = (repo) => {
   console.log('fetching stats/commitActivity for', repo);
   return resolver(`${API_BASE}/${repo}/stats/commit_activity`);
 }
