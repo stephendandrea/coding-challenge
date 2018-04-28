@@ -7,11 +7,11 @@ export const ActivityLegend = () => {
   return (
     <ul className="activity-legend">
       <li>Less</li>
-      <ActivityCell activity={1} />
-      <ActivityCell activity={2} />
-      <ActivityCell activity={3} />
-      <ActivityCell activity={4} />
-      <ActivityCell activity={5} />
+      <ActivityCell density={1} />
+      <ActivityCell density={2} />
+      <ActivityCell density={3} />
+      <ActivityCell density={4} />
+      <ActivityCell density={5} />
       <li>More</li>
     </ul>
   );

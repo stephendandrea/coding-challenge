@@ -33,7 +33,7 @@ export class ActivityColumn extends Component {
     return (
       <ul className="activity-column">
         {weekData.commitDensity.map(
-          density => <ActivityCell activity={density} />
+          density => <ActivityCell density={density} />
         )}
       </ul>
     );

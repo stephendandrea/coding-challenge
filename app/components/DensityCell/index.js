@@ -1,1 +1,0 @@
-export { ActivityCell } from './ActivityCell';

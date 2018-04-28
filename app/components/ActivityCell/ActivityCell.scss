@@ -8,21 +8,20 @@
   margin     : 1px;
 }
 
-.activity {
+.activity-density {
   &-1 {
-    background-color : $color-activity-1;
+    background-color : $color-activity-density-1;
   }
   &-2 {
-    background-color : $color-activity-2;
+    background-color : $color-activity-density-2;
   }
   &-3 {
-    background-color : $color-activity-3;
+    background-color : $color-activity-density-3;
   }
   &-4 {
-    background-color : $color-activity-4;
+    background-color : $color-activity-density-4;
   }
   &-5 {
-    background-color : $color-activity-5;
+    background-color : $color-activity-density-5;
   }
 }
-

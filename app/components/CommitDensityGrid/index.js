@@ -1,1 +1,0 @@
-export {CommitActivityGrid} from './CommitActivityGrid';

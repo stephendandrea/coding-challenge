@@ -3,8 +3,8 @@ import React from 'react';
 import './ActivityCell.scss';
 
 export const ActivityCell = (props) => {
-  const {activity} = props;
-  const cellClasses = `cell activity-${activity}`;
+  const {density} = props;
+  const cellClasses = `cell activity-density-${density}`;
   return (
     <li className={cellClasses}/>
   )
