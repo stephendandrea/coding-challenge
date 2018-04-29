@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getCommitActivity } from '../../thunks/stats';
+import { connect } from 'react-redux';
+
 import { CommitActivityGrid } from '../CommitActivityGrid';
+
 import CommitActivityWeek from '../../vos/CommitActivityWeek';
 
-class ReactCommitActivityGrid extends React.Component {
+import { getCommitActivity } from '../../thunks/stats';
+
+class ReactCommitActivityGrid extends Component {
   componentWillMount () {
     const {getCommitActivity} = this.props;
     getCommitActivity('react');

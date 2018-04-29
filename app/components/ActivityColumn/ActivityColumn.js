@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import { ActivityCell } from '../ActivityCell';
 
-import './ActivityColumn.scss';
 import CommitActivityWeek from '../../vos/CommitActivityWeek';
+
+import './ActivityColumn.scss';
 
 export class ActivityColumn extends Component {
   static propTypes = {

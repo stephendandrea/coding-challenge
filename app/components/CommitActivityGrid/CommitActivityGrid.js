@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+
 import { ActivityLegend } from '../ActivityLegend/ActivityLegend';
 import { ActivityColumn } from '../ActivityColumn/ActivityColumn';
 
-import './CommitActivityGrid.scss';
 import CommitActivityWeek from '../../vos/CommitActivityWeek';
+
+import './CommitActivityGrid.scss';
 
 export class CommitActivityGrid extends Component {
   static defaultProps = {

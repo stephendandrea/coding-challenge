@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ActivityCell } from '../ActivityCell';
 
 import './ActivityLegend.scss';
