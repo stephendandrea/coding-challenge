@@ -1,0 +1,27 @@
+@import 'app/styles/global.scss';
+
+.cell {
+  width      : $cell-size;
+  height     : $cell-size;
+  list-style : none;
+  display    : block;
+  margin     : 1px;
+}
+
+.activity-density {
+  &-1 {
+    background-color : $color-activity-density-1;
+  }
+  &-2 {
+    background-color : $color-activity-density-2;
+  }
+  &-3 {
+    background-color : $color-activity-density-3;
+  }
+  &-4 {
+    background-color : $color-activity-density-4;
+  }
+  &-5 {
+    background-color : $color-activity-density-5;
+  }
+}

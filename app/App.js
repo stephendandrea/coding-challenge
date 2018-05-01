@@ -1,5 +1,10 @@
 import React from 'react';
+import {Provider} from 'react-redux';
 import {render} from 'react-dom';
+
+import { ReactCommitActivityGrid } from './components/ReactCommitActivityGrid';
+
+import store from './store';
 
 export default class App extends React.Component {
 
@@ -23,10 +28,17 @@ export default class App extends React.Component {
             If the highest single days activity is 84, any day in the top 25% (63-84 commits) should have the highest density color.
           </li>
         </ul>
+        <h3>Live component:</h3>
+        <ReactCommitActivityGrid />
       </div>
     );
 
   }
 }
 
-render(<App/>, document.getElementById('app'));
+render(
+  <Provider store={store}>
+    <App/>
+  </Provider>,
+  document.getElementById('app')
+);

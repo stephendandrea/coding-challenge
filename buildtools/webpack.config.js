@@ -21,8 +21,10 @@ module.exports = {
     historyApiFallback: true,
     port : 3000,
     hot: false,
-    inline: false
+    inline: false,
+    contentBase: './app'
   },
+  devtool: 'source-map',
   module: {
     loaders: [
       {
@@ -32,7 +34,11 @@ module.exports = {
       },
       {
         test: /\.(sass|scss|css)$/,
-        loader: ExtractTextPlugin.extract(['css-loader', 'postcss-loader', 'sass-loader'])
+        loader: [
+          require.resolve('style-loader'),
+          require.resolve('css-loader'),
+          require.resolve('sass-loader')
+        ]
       },
       {
         test: /\.(jpe?g|gif|png)$/,

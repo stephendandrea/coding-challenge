@@ -1,0 +1,51 @@
+@import 'app/styles/global.scss';
+
+section.activity-stats {
+  .label-wrapper {
+    .days {
+      margin-top    : calc(#{$cell-size} + 8px);
+      margin-left   : 2px;
+      margin-right  : 2px;
+      margin-bottom : 0;
+      text-align    : left;
+    }
+    display: flex;
+    flex-direction: row;
+  }
+  .grid-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .months {
+    li {
+      flex-grow: 1;
+    }
+    display        : flex;
+    flex-direction : row;
+    width          : 100%;
+    padding        : 0;
+    margin         : 6px 0 3px;
+    text-align     : center;
+  }
+  .activity-grid {
+    display        : flex;
+    flex-direction : row;
+  }
+  ul.vertical {
+    li {
+      height: calc(#{$cell-size} + 2px);
+    }
+    display        : flex;
+    flex-direction : column;
+    padding        : 0;
+  }
+  ul li {
+    list-style-type: none;
+  }
+  font-size        : 0.5rem;
+  background-color : #FFF;
+  margin           : 0 auto;
+  display          : flex;
+  flex-direction   : column;
+  width            : 649px;
+}
