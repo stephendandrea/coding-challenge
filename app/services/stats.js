@@ -13,7 +13,6 @@ const resolver = url =>{
 };
 
 export const fetchCommitActivity = repo => {
-  console.log('fetching stats/commitActivity for', repo);
   return resolver(`${API_BASE}/${repo}/stats/commit_activity`);
 };
 

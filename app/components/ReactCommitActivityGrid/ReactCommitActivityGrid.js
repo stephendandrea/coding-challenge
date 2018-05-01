@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { CommitActivityGrid } from '../CommitActivityGrid';
 
 import CommitActivityWeek from '../../vos/CommitActivityWeek';
+import DensityScale from '../../vos/DensityScale';
 
 import { getCommitActivity } from '../../thunks/stats';
 
@@ -28,12 +29,14 @@ ReactCommitActivityGrid.defaultProps = {
 };
 
 ReactCommitActivityGrid.propTypes = {
-  activityData: PropTypes.arrayOf(CommitActivityWeek)
+  activityData : PropTypes.arrayOf(PropTypes.instanceOf(CommitActivityWeek)),
+  densityScale : PropTypes.instanceOf(DensityScale)
 };
 
 function mapStateToProps (state) {
   return {
-    activityData: state.stats.activityData
+    activityData : state.stats.activityData,
+    densityScale : state.stats.densityScale
   };
 }
 

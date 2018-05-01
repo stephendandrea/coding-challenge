@@ -1,17 +1,23 @@
-import { SET_COMMIT_ACTIVITY } from '../actions/stats';
+import { SET_COMMIT_ACTIVITY, SET_DENSITY_SCALE } from '../actions/stats';
 import CommitActivityWeek from '../vos/CommitActivityWeek';
+import DensityScale from '../vos/DensityScale';
 
 const statsInitialState = {
-  activityData: Array(52).fill(new CommitActivityWeek())
+  activityData: Array(52).fill(new CommitActivityWeek()),
+  densityScale: new DensityScale(25)
 };
 
-const stats = (state = statsInitialState, action) => {
-  switch (action.type) {
+const stats = (state = statsInitialState, {type, payload }) => {
+  switch (type) {
     case SET_COMMIT_ACTIVITY:
-      console.log('setting commit activity');
       return {
         ...state,
-        activityData: action.data
+        activityData: payload
+      };
+    case SET_DENSITY_SCALE:
+      return {
+        ...state,
+        densityScale: payload
       };
     default:
       return state;
