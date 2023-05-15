@@ -11,10 +11,6 @@ type Week = {
 };
 
 const months = [
-  "January",
-  "February",
-  "March",
-  "April",
   "May",
   "June",
   "July",
@@ -23,6 +19,10 @@ const months = [
   "October",
   "November",
   "December",
+  "January",
+  "February",
+  "March",
+  "April",
 ];
 
 const days = ["", "Monday", "Wednesday", "Friday"];
