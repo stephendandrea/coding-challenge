@@ -1,6 +1,9 @@
-import './App.css';
-import commitGraph from './assets/git-graph.gif';
-function App() {
+import "./App.css";
+import commitGraph from "./assets/git-graph.gif";
+import Graph from "./components/Graph";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+const App = () => {
   return (
     <div className="container">
       <h2>Coding Challenge</h2>
@@ -12,6 +15,9 @@ function App() {
           https://api.github.com/repos/facebook/react/stats/commit_activity
         </a>
       </p>
+      <br />
+      <Graph />
+      <br />
       <h3>Notes:</h3>
       <ul>
         <li>
@@ -38,6 +44,6 @@ function App() {
       </ul>
     </div>
   );
-}
+};
 
 export default App;
