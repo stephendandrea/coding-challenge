@@ -17,14 +17,11 @@ const useApi = ({ url }: useApiProps): useApiReturn => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const BACKEND_URL =
-    "https://api.github.com/repos/facebook/react/stats/commit_activity";
-
   const getData = () => {
     setError(null);
     setLoading(true);
     axios
-      .get(BACKEND_URL + url)
+      .get(url)
       .then((response) => {
         setData(response.data);
       })
