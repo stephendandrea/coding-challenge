@@ -10,6 +10,23 @@ type Week = {
   days: number[];
 };
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const days = ["", "Monday", "Wednesday", "Friday"];
+
 const Graph = () => {
   const [highestDay, setHighestDay] = useState(0);
   const { data, loading, error, reFetch } = useApi({
@@ -28,23 +45,50 @@ const Graph = () => {
         <div>Loading...</div>
       ) : (
         <Container>
-          <div className="d-flex align-items-center">
-            {data.map((item: Week) => {
-              return (
-                <div className="d-flex flex-column align-items-center">
-                  {item.days.map((day: number, index) => {
+          <Row>
+            <Col
+              xs={1}
+              className="d-flex flex-column justify-content-around align-items-center"
+            >
+              {days.map((day) => {
+                return (
+                  <div key={day} className="indexName">
+                    {day.substring(0, 3)}
+                  </div>
+                );
+              })}
+            </Col>
+            <Col xs={11} className="overflow-auto">
+              <Row className="justify-content-around">
+                {months.map((month) => {
+                  return (
+                    <div key={month} className="indexName">
+                      {month.substring(0, 3)}
+                    </div>
+                  );
+                })}
+              </Row>
+              <Row>
+                <div className="d-flex align-items-center justify-content-center w-100">
+                  {data.map((item: Week) => {
                     return (
-                      <Day
-                        commitsForDay={day}
-                        highestCommit={highestDay}
-                        key={item.week + index}
-                      />
+                      <div className="d-flex flex-column align-items-center">
+                        {item.days.map((day: number, index) => {
+                          return (
+                            <Day
+                              commitsForDay={day}
+                              highestCommit={highestDay}
+                              key={item.week + index}
+                            />
+                          );
+                        })}
+                      </div>
                     );
                   })}
                 </div>
-              );
-            })}
-          </div>
+              </Row>
+            </Col>
+          </Row>
         </Container>
       )}
     </>

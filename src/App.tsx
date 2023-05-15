@@ -15,7 +15,9 @@ const App = () => {
           https://api.github.com/repos/facebook/react/stats/commit_activity
         </a>
       </p>
+      <br />
       <Graph />
+      <br />
       <h3>Notes:</h3>
       <ul>
         <li>

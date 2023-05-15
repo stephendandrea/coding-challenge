@@ -21,9 +21,9 @@ const Day = ({ commitsForDay, highestCommit }: DayProp) => {
       <div
         style={{
           backgroundColor: color,
-          height: "18px",
-          width: "18px",
-          margin: "1px",
+          height: "16px",
+          width: "16px",
+          margin: "1.5px",
         }}
       ></div>
     </OverlayTrigger>
