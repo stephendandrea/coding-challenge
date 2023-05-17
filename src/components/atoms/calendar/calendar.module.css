@@ -1,0 +1,55 @@
+.calendar {
+  display: flex;
+}
+
+.month {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  justify-content: flex-start;
+}
+
+.monthName {
+  margin: 0;
+}
+
+.monthDays {
+  display: flex;
+  flex-direction: column;
+}
+
+.week {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.day {
+  height: 1rem;
+  min-width: 1rem;
+  margin: 0 0.125rem 0.125rem 0;
+}
+
+.day:last-child {
+  margin-right: 0;
+}
+
+.dayLightest {
+  background-color: #eeeeee;
+}
+
+.dayLighter {
+  background-color: #cce295;
+}
+
+.dayBase {
+  background-color: #8dc678;
+}
+
+.dayDarker {
+  background-color: #4b9747;
+}
+
+.dayDarkest {
+  background-color: #305f2e;
+}
