@@ -1,9 +1,12 @@
 import './App.css';
 import commitGraph from './assets/git-graph.gif';
+import Graph from './components/graph';
 function App() {
+
   return (
     <div className="container">
       <h2>Coding Challenge</h2>
+      <Graph />
       <img src={commitGraph} alt="Git Graph" className="git-graph" />
       <p>
         Create the graph above using this data:
