@@ -18,7 +18,7 @@ export default function CommitGraph() {
   const [hasError, setHasError] = useState<boolean>(false)
   const WEEKDAYS = ['', 'Mon', '', 'Wed', '', 'Fri', '']
 
-  // TODO: Extract all functions to utils file
+  // TODO: Extract all functions to utils file and create tests
   function getHighestIntensity(commitActivity: CommitActivity): number {
     return commitActivity.reduce((currentMax, newWeek) => {
       const newMax = Math.max(...newWeek.days)
