@@ -7,3 +7,28 @@
 img {
   width: 100%;
 }
+
+td {
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+}
+th {
+  text-align: left;
+}
+
+.intensity-0 {
+  background-color: #eeeeee;
+}
+.intensity-1 {
+  background-color: #cce295;
+}
+.intensity-2 {
+  background-color: #8dc678;
+}
+.intensity-3 {
+  background-color: #4b9747;
+}
+.intensity-4 {
+  background-color: #315f2d;
+}
