@@ -97,7 +97,7 @@ export default function CommitGraph() {
             <th></th>
             <th></th>
             <th></th>
-            {data.months.map((month: any) => (
+            {data.months.map((month: string) => (
               <>
                 <th colSpan={4}>{month}</th>
               </>
