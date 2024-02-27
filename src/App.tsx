@@ -1,6 +1,32 @@
+import { Suspense } from 'react';
 import './App.css';
 import commitGraph from './assets/git-graph.gif';
+import { CommitSquare } from './components/commit-square';
+import { WeekType } from './types/weekType';
+import { useWeeks } from './utils/hooks/useWeeks';
+
 function App() {
+  
+  const { weeks } : { weeks : WeekType[] | null } = useWeeks();
+
+  let maxCommits = 0
+  for (const week of weeks) {
+    for (const day of week.days) {
+      if (day > maxCommits) {
+        maxCommits = day
+      }
+    }
+  }
+  
+  const getColorByCommits = (commits : number) => {
+    if (commits === 0) return "#ebedf0"
+    if (commits<maxCommits/4) return "#cce295"
+    if (commits<maxCommits/2) return "#8dc678"
+    if (commits<maxCommits*3/4) return "#4b9747"
+    return "#305f2e"
+  } 
+
+  // 3. Create a graph that represents the data
   return (
     <div className="container">
       <h2>Coding Challenge</h2>
@@ -12,30 +38,24 @@ function App() {
           https://api.github.com/repos/facebook/react/stats/commit_activity
         </a>
       </p>
-      <h3>Notes:</h3>
-      <ul>
-        <li>
-          Commit color density should be relative to the highest single day
-          activity and broken into 4 quarters.
-        </li>
-        <li>
-          For example, if the highest single day activity is 84 commits the
-          breakdown of color density would be:
-          <br />
-          <br />
-          <code>
-            Darkest: 63-84 commits
-            <br />
-            Darker: 42 - 62 commits
-            <br />
-            Base: 21 - 41 commits
-            <br />
-            Lighter: 1 - 21 commits
-            <br />
-            Lightest (empty): 0 commits
-          </code>
-        </li>
-      </ul>
+      
+      <div style={{display: 'flex', position: "relative"}}>
+      <Suspense fallback={<div>Loading...</div>}>
+      {weeks.map((week, column) => (
+        <div key={week.week}>
+          {week.days.map((commit, row) => {
+            return (
+              <>
+              <div onMouseOver={() => console.log("row, col: ", row, column)}>
+                <CommitSquare commits={commit} color={getColorByCommits(commit)} key={row} />
+              </div>
+              </>
+            );
+          })}
+        </div>
+      ))}
+    </Suspense>
+      </div>
     </div>
   );
 }
