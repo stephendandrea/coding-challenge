@@ -7,7 +7,7 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 import { useCommitHistory } from "../utils/hooks/useCommitHistory";
-import { isPastDate, isToday } from "../utils/functions/dates";
+import { getDayOfWeekLabel, getMonthLabel, isFirstWeekofMonth, isPastDate, isToday } from "../utils/functions/dates";
 import { styled } from "styled-components";
 
 export const CommitGraph = () => {
@@ -31,19 +31,6 @@ export const CommitGraph = () => {
     if (commits < maxCommits / 2) return "#8dc678";
     if (commits < (maxCommits * 3) / 4) return "#4b9747";
     return "#305f2e";
-  };
-
-  const getDayOfWeekLabel = (dayIndex: number) => {
-    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    return daysOfWeek[dayIndex];
-  };
-
-  const getMonthLabel = (timestamp: number) => {
-    return new Date(timestamp).toLocaleString("default", { month: "short" });
-  };
-
-  const isFirstWeekofMonth = (week: WeekType) => {
-    return new Date(week.week * 1000).getDate() <= 7;
   };
 
   const RenderMonthLabel = ({ week }: { week: WeekType }) => {
