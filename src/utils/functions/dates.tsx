@@ -1,9 +1,18 @@
 export const getWeekFromTimestamp = (timestamp: number) => {
-    // Create a new Date object using the provided timestamp
-    const date = new Date(timestamp * 1000); // Unix timestamps are in seconds, so multiply by 1000 to convert to milliseconds
+  const date = new Date(timestamp * 1000);
+  const week = date.getUTCDay();
+  return week;
+};
 
-    // Use the getWeek method to get the week number
-    const week = date.getUTCDay(); // Note: getUTCDay returns the day of the week (0 for Sunday through 6 for Saturday)
+export const isPastDate = (date: number) => {
+  return new Date(date) <= new Date();
+};
 
-    return week;
-}
+export const isToday = (date: number) => {
+  const passedDate = new Date(date);
+  const today = new Date();
+  // Set hours, minutes, seconds, and milliseconds to 0 for accurate comparison
+  passedDate.setHours(0, 0, 0, 0);
+  today.setHours(0, 0, 0, 0);
+  return passedDate.getTime() === today.getTime();
+};
