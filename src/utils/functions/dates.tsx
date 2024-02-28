@@ -25,8 +25,8 @@ export const getDayOfWeekLabel = (dayIndex: number) => {
   };
 
 export const getMonthLabel = (timestamp: number) => {
-    return new Date(timestamp).toLocaleString("default", { month: "short" });
-  };
+    return new Date(timestamp).toLocaleString("en-US", { month: "short" });
+};
 
 export const isFirstWeekofMonth = (week: WeekType) => {
     return new Date(week.week * 1000).getDate() <= 7;
