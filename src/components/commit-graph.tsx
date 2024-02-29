@@ -91,7 +91,10 @@ const RenderCommitSquare = ({
 };
 
 export const CommitGraph = () => {
-  const { commitHistory }: { commitHistory: WeekType[] | null } =
+  const {
+    commitHistory,
+    error,
+  }: { commitHistory: WeekType[] | null; error: string | null } =
     useCommitHistory();
 
   let maxCommits = 0;
@@ -103,6 +106,14 @@ export const CommitGraph = () => {
         }
       }
     }
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (maxCommits === 0) {
+    return <div>Loading...</div>;
   }
 
   return (
