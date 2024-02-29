@@ -12,7 +12,7 @@ function App() {
       </div>
       <div className="flex justify-center items-center text-xs mt-5">
         <h4>
-          Technical test developed by{" "}
+          Technical challenge solution by{" "}
           <a href="https://github.com/julian-pineiro">Julian Piñeiro</a> for{" "}
           <a href="https://concourse.co">Concourse</a>
         </h4>
