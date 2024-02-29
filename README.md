@@ -41,12 +41,17 @@ Commits are color-coded based on the intensity of commits on a particular day. T
 
 Hovering over a commit square displays the number of commits and the specific date when they were done.
 
+There is a loader that is briefly presented while the data is being fetched from the API.
+
+Errors are handled and elegantly presented to the user in case of server side errors.
+
 ## Technologies and implementation
 
 - [Styled-components](https://styled-components.com): This library helps reduce inline styling and keep the code cleaner.
 - [Shadcn-ui](https://ui.shadcn.com): UI Library used to import the popover. Requires [Tailwind css](https://tailwindcss.com) to work.
-- Custom hooks: Created a _useCommitHistory_ hook to handle data fetching outside of the CommitGraph component.
+- Custom hooks: Created a _useCommitHistory_ hook to handle data fetching outside of the CommitGraph component. This implements the [Container/Presentational Pattern](https://www.patterns.dev/react/presentational-container-pattern) to separate handling application logic with the view and add _separation of concerns_ (SoC). This goes hand in hand with the "S" in SOLID principles: _Single Responsibility Principle_.
 - Code structure: Although this specific project is very simple,a clean and organized project structure is crucial if scalability is required.
 - Data fetching: Fetch API was good enough for the requirements of this project. A common alternative would Axios that can be used to achieve the same functionality.
 
-#####
+#### Possible improvements
+- [Proxy pattern](https://www.patterns.dev/vanilla/proxy-pattern/): There is an opportunity to make use of this pattern in the fetch data hook, by calculating the color of each commit square and appending it to the API response objects. This could abstract the parent component from doing this calculation, thus improving SoC.
