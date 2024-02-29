@@ -5,7 +5,7 @@
 This is a coding challenge solved by [Julian Piñeiro](https://github.com/julian-pineiro). It implements a commit graph for the [Facebook/React](https://github.com/facebook/react) repository using Github's API.
 This project is hosted at [https://commit-graph-challenge.vercel.app](https://commit-graph-challenge.vercel.app).
 
-## Running the project
+## Project setup
 
 ##### Prerequisites
 
@@ -48,3 +48,5 @@ Hovering over a commit square displays the number of commits and the specific da
 - Custom hooks: Created a _useCommitHistory_ hook to handle data fetching outside of the CommitGraph component.
 - Code structure: Although this specific project is very simple,a clean and organized project structure is crucial if scalability is required.
 - Data fetching: Fetch API was good enough for the requirements of this project. A common alternative would Axios that can be used to achieve the same functionality.
+
+#####
