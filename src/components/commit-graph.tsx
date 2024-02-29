@@ -7,8 +7,88 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 import { useCommitHistory } from "../utils/hooks/useCommitHistory";
-import { getDayOfWeekLabel, getMonthLabel, isFirstWeekofMonth, isPastDate, isToday } from "../utils/functions/dates";
+import {
+  GetDayOfWeekLabel,
+  GetMonthLabel,
+  isFirstWeekOfMonth,
+  isPastDate,
+  isToday,
+} from "../utils/functions/dates";
 import { styled } from "styled-components";
+
+const RenderMonthLabel = ({ week }: { week: WeekType }) => {
+  if (!isFirstWeekOfMonth(week)) return null;
+  return (
+    <StyledMonthLabelContainer>
+      <StyledMonthLabel>
+        <GetMonthLabel timestamp={week.week * 1000} />
+      </StyledMonthLabel>
+    </StyledMonthLabelContainer>
+  );
+};
+
+const CommitMessage = ({
+  commit,
+  week,
+  row,
+}: {
+  commit: number;
+  week: WeekType;
+  row: number;
+}) => {
+  return (
+    <p>
+      {commit !== 0 ? commit : <span>No </span>} commits on{" "}
+      {new Date(
+        week.week * 1000 + row * 24 * 60 * 60 * 1000
+      ).toLocaleDateString()}
+    </p>
+  );
+};
+
+const RenderDayLabel = ({ column, row }: { column: number; row: number }) => {
+  if (column === 0 && (row === 1 || row === 3 || row === 5)) {
+    return (
+      <StyledDayLabelContainer>
+        <StyledDayLabel>
+          <GetDayOfWeekLabel dayIndex={row} />
+        </StyledDayLabel>
+      </StyledDayLabelContainer>
+    );
+  } else {
+    return null;
+  }
+};
+
+const getColorByCommits = (commits: number, maxCommits: number) => {
+  if (commits === 0) return "#ebedf0";
+  if (commits < maxCommits / 4) return "#cce295";
+  if (commits < maxCommits / 2) return "#8dc678";
+  if (commits < (maxCommits * 3) / 4) return "#4b9747";
+  return "#305f2e";
+};
+
+const RenderCommitSquare = ({
+  row,
+  week,
+  commit,
+  maxCommits,
+}: {
+  row: number;
+  week: WeekType;
+  commit: number;
+  maxCommits: number;
+}) => {
+  if (
+    isPastDate(week.week * 1000 + row * 24 * 60 * 60 * 1000) ||
+    isToday(week.week * 1000 + row * 24 * 60 * 60 * 1000)
+  ) {
+    return (
+      <CommitSquare color={getColorByCommits(commit, maxCommits)} key={row} />
+    );
+  }
+  return null;
+};
 
 export const CommitGraph = () => {
   const { commitHistory }: { commitHistory: WeekType[] | null } =
@@ -25,37 +105,6 @@ export const CommitGraph = () => {
     }
   }
 
-  const getColorByCommits = (commits: number) => {
-    if (commits === 0) return "#ebedf0";
-    if (commits < maxCommits / 4) return "#cce295";
-    if (commits < maxCommits / 2) return "#8dc678";
-    if (commits < (maxCommits * 3) / 4) return "#4b9747";
-    return "#305f2e";
-  };
-
-  const RenderMonthLabel = ({ week }: { week: WeekType }) => {
-    if (!isFirstWeekofMonth(week)) return null;
-    return (
-      <StyledMonthLabelContainer>
-        <StyledMonthLabel>
-          <span>{getMonthLabel(week.week * 1000)}</span>
-        </StyledMonthLabel>
-      </StyledMonthLabelContainer>
-    );
-  };
-
-  const RenderDayLabel = ({ column, row }: { column: number; row: number }) => {
-    if (column === 0 && (row === 1 || row === 3 || row === 5)) {
-      return (
-        <StyledDayLabelContainer>
-          <StyledDayLabel>{getDayOfWeekLabel(row)}</StyledDayLabel>
-        </StyledDayLabelContainer>
-      );
-    } else {
-      return null;
-    }
-  };
-
   return (
     <StyledContainer>
       {commitHistory?.map((week, column) => (
@@ -68,25 +117,17 @@ export const CommitGraph = () => {
                 <TooltipProvider key={row}>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      {isPastDate(
-                        week.week * 1000 + row * 24 * 60 * 60 * 1000
-                      ) ||
-                      isToday(week.week * 1000 + row * 24 * 60 * 60 * 1000) ? (
-                        <div>
-                          <CommitSquare
-                            color={getColorByCommits(commit)}
-                            key={row}
-                          />
-                        </div>
-                      ) : null}
+                      <div>
+                        <RenderCommitSquare
+                          row={row}
+                          commit={commit}
+                          week={week}
+                          maxCommits={maxCommits}
+                        />
+                      </div>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>
-                        {commit !== 0 ? commit : <span>No </span>} commits on{" "}
-                        {new Date(
-                          week.week * 1000 + row * 24 * 60 * 60 * 1000
-                        ).toLocaleDateString()}
-                      </p>
+                      <CommitMessage commit={commit} week={week} row={row} />
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
