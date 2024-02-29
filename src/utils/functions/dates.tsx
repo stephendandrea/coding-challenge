@@ -18,15 +18,19 @@ export const isToday = (date: number) => {
   return passedDate.getTime() === today.getTime();
 };
 
-export const getDayOfWeekLabel = (dayIndex: number) => {
-    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    return daysOfWeek[dayIndex];
-  };
-
-export const getMonthLabel = (timestamp: number) => {
-    return new Date(timestamp).toLocaleString("en-US", { month: "short" });
+export const GetDayOfWeekLabel = ({ dayIndex }: { dayIndex: number }) => {
+  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return <span>{daysOfWeek[dayIndex]}</span>;
 };
 
-export const isFirstWeekofMonth = (week: WeekType) => {
-    return new Date(week.week * 1000).getDate() <= 7;
-  };
+export const GetMonthLabel = ({ timestamp }: { timestamp: number }) => {
+  return (
+    <span>
+      {new Date(timestamp).toLocaleString("en-US", { month: "short" })}
+    </span>
+  );
+};
+
+export const isFirstWeekOfMonth = (week: WeekType) => {
+  return new Date(week.week * 1000).getDate() <= 7;
+};
